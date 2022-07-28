@@ -1,0 +1,29 @@
+<button
+  *ngIf="config.scheme !== 'dark'"
+  mat-icon-button
+  (click)="setScheme('dark')"
+  [matTooltip]="'Dark'"
+>
+  <ng-container>
+    <span
+      class="absolute top-0 right-0 left-0 flex items-center justify-center h-3"
+    >
+    </span>
+  </ng-container>
+  <mat-icon [svgIcon]="'heroicons_solid:moon'"></mat-icon>
+</button>
+
+<button
+  *ngIf="config.scheme === 'dark'"
+  mat-icon-button
+  (click)="setScheme('light')"
+  [matTooltip]="'Light'"
+>
+  <ng-container>
+    <span
+      class="absolute top-0 right-0 left-0 flex items-center justify-center h-3"
+    >
+    </span>
+  </ng-container>
+  <mat-icon [svgIcon]="'heroicons_solid:sun'"></mat-icon>
+</button>

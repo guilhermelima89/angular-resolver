@@ -1,0 +1,83 @@
+<div class="relative flex flex-col sm:flex-row flex-0 sm:items-center sm:justify-between py-8 px-6 md:px-8 border-b">
+  <div class="absolute inset-x-0 bottom-0" *ngIf="isLoading">
+    <mat-progress-bar [mode]="'indeterminate'"></mat-progress-bar>
+  </div>
+
+  <mat-form-field class="fuse-mat-dense fuse-mat-no-subscript w-full min-w-50">
+    <mat-icon matPrefix [svgIcon]="'heroicons_outline:search'"></mat-icon>
+    <input matInput [formControl]="searchInputControl" [autocomplete]="'off'" [placeholder]="'Digite uma palavra...'" />
+  </mat-form-field>
+</div>
+
+<div class="flex flex-auto overflow-hidden">
+  <div class="flex flex-col flex-auto sm:mb-18 overflow-hidden sm:overflow-y-auto">
+    <ng-container *ngIf="data$ | async as items">
+      <ng-container *ngIf="items.length > 0; else noItems">
+        <div class="grid">
+          <div
+            class="inventory-grid z-10 sticky top-0 grid gap-4 py-4 px-6 md:px-8 shadow text-md font-semibold text-secondary bg-gray-50 dark:bg-black dark:bg-opacity-5"
+            matSort
+          >
+            <div>#</div>
+            <div>Beneficiário</div>
+            <div class="hidden md:block">Data da Solicitação</div>
+            <div class="hidden md:block">Situação</div>
+            <div class="text-center">Ações</div>
+          </div>
+          <ng-container *ngIf="data$ | async as items">
+            <ng-container *ngFor="let item of items; index as i; trackBy: trackByFn">
+              <div
+                class="inventory-grid grid items-center gap-4 py-3 px-6 md:px-8 border-b bg-gray-50 dark:bg-black dark:bg-opacity-5"
+              >
+                <div>{{ i + 1 }}</div>
+                <div class="truncate">{{ item.nome }}</div>
+                <div class="hidden md:block">{{ item.dataCriacao | date: 'HH:mm:ss - dd/MM/yyyy' }}</div>
+                <div class="hidden md:block">
+                  <ng-container *ngIf="item.concluido === 'Concluído'">
+                    <span class="text-green-400">
+                      {{ item.concluido }}
+                    </span>
+                  </ng-container>
+                  <ng-container *ngIf="item.concluido === 'Pendente'">
+                    <span class="text-red-400">
+                      {{ item.concluido }}
+                    </span>
+                  </ng-container>
+                </div>
+                <div class="whitespace-nowrap">
+                  <button
+                    mat-icon-button
+                    class="mr-2"
+                    [matTooltip]="'Visualizar'"
+                    [color]="'primary'"
+                    (click)="openComposeDialog(item)"
+                  >
+                    <mat-icon class="text-on-primary" [svgIcon]="'heroicons_outline:document-search'"></mat-icon>
+                  </button>
+
+                  <app-generate-pdf [item]="item"></app-generate-pdf>
+                </div>
+              </div>
+            </ng-container>
+          </ng-container>
+        </div>
+
+        <mat-paginator
+          class="sm:absolute sm:inset-x-0 sm:bottom-0 border-b sm:border-t sm:border-b-0 z-10 bg-gray-50 dark:bg-transparent"
+          [ngClass]="{ 'pointer-events-none': isLoading }"
+          [length]="pagination.totalCount"
+          [pageIndex]="pagination.currentPage"
+          [pageSize]="pagination.pageSize"
+          [pageSizeOptions]="[10, 25, 50]"
+          [showFirstLastButtons]="true"
+        ></mat-paginator>
+      </ng-container>
+    </ng-container>
+
+    <ng-template #noItems>
+      <div class="p-8 sm:p-16 border-t text-4xl font-semibold tracking-tight text-center">
+        Nenhuma informação encontrada!
+      </div>
+    </ng-template>
+  </div>
+</div>

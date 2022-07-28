@@ -1,0 +1,32 @@
+export interface AtualizacaoCadastral {
+  id: number;
+  autoId: string;
+  nome: string;
+  codigo: string;
+  email: string;
+  telefone: string;
+  cep: string;
+  logradouro: string;
+  numero: string;
+  complemento: string;
+  bairro: string;
+  cidade: string;
+  estado: string;
+  atendente: string;
+  nomeResponsavel: string;
+  emailResponsavel: string;
+  telefoneResponsavel: string;
+  cepResponsavel: string;
+  logradouroResponsavel: string;
+  numeroResponsavel: string;
+  complementoResponsavel: string;
+  bairroResponsavel: string;
+  cidadeResponsavel: string;
+  estadoResponsavel: string;
+  autorizaCorrespondencia: boolean;
+  autorizaFatura: boolean;
+  autorizaSms: boolean;
+  autorizaWhatsApp: boolean;
+  dataCriacao: Date;
+  concluido: string;
+}

@@ -1,0 +1,149 @@
+<div class="flex flex-col max-w-300 max-h-200 md:min-w-160 -m-6">
+  <div class="flex flex-0 items-center justify-between h-16 pr-3 sm:pr-5 pl-6 sm:pl-8 bg-primary text-on-primary">
+    <div class="text-lg font-medium">{{ data.nome }}</div>
+    <button mat-icon-button (click)="saveAndClose()" [tabIndex]="-1">
+      <mat-icon class="text-current" [svgIcon]="'heroicons_outline:x'"></mat-icon>
+    </button>
+  </div>
+
+  <fuse-alert
+    class="mt-8 mb-4 ml-8 mr-8"
+    *ngIf="showAlert"
+    [appearance]="'outline'"
+    [showIcon]="false"
+    [type]="alert.type"
+    [@shake]="alert.type === 'error'"
+  >
+    <li *ngFor="let error of alert.message">{{ error }}</li>
+  </fuse-alert>
+
+  <div class="flex flex-col flex-auto p-6 sm:p-8 overflow-y-auto">
+    <table class="table w-full border">
+      <tbody>
+        <tr class="border-b text-left">
+          <th class="p-4 border-r bg-gray-50 dark:bg-gray-900 w-60">Beneficiário</th>
+          <td class="p-4 border">{{ data.nome }}</td>
+        </tr>
+        <tr class="border-b text-left">
+          <th class="p-4 border-r bg-gray-50 dark:bg-gray-900 w-60">Código</th>
+          <td class="p-4 border">{{ data.codigo }}</td>
+        </tr>
+        <tr class="border-b text-left">
+          <th class="p-4 border-r bg-gray-50 dark:bg-gray-900 w-60">Pessoa</th>
+          <td class="p-4 border">{{ data.autoId }}</td>
+        </tr>
+        <tr class="border-b text-left">
+          <th class="p-4 border-r bg-gray-50 dark:bg-gray-900 w-60">E-mail</th>
+          <td class="p-4 border">{{ data.email }}</td>
+        </tr>
+        <tr class="border-b text-left">
+          <th class="p-4 border-r bg-gray-50 dark:bg-gray-900 w-60">Telefone</th>
+          <td class="p-4 border">{{ data.telefone }}</td>
+        </tr>
+        <tr class="border-b text-left">
+          <th class="p-4 border-r bg-gray-50 dark:bg-gray-900 w-60">Cep</th>
+          <td class="p-4 border">{{ data.cep }}</td>
+        </tr>
+        <tr class="border-b text-left">
+          <th class="p-4 border-r bg-gray-50 dark:bg-gray-900 w-60">Logradouro</th>
+          <td class="p-4 border">{{ data.logradouro }}</td>
+        </tr>
+        <tr class="border-b text-left">
+          <th class="p-4 border-r bg-gray-50 dark:bg-gray-900 w-60">Número</th>
+          <td class="p-4 border">{{ data.numero }}</td>
+        </tr>
+        <tr class="border-b text-left">
+          <th class="p-4 border-r bg-gray-50 dark:bg-gray-900 w-60">Complemento</th>
+          <td class="p-4 border">{{ data.complemento }}</td>
+        </tr>
+        <tr class="border-b text-left">
+          <th class="p-4 border-r bg-gray-50 dark:bg-gray-900 w-60">Bairro</th>
+          <td class="p-4 border">{{ data.bairro }}</td>
+        </tr>
+        <tr class="border-b text-left">
+          <th class="p-4 border-r bg-gray-50 dark:bg-gray-900 w-60">Cidade</th>
+          <td class="p-4 border">{{ data.cidade }}</td>
+        </tr>
+        <tr class="border-b text-left">
+          <th class="p-4 border-r bg-gray-50 dark:bg-gray-900 w-60">Estado</th>
+          <td class="p-4 border">{{ data.estado }}</td>
+        </tr>
+        <tr class="border-b text-left">
+          <th class="p-4 border-r bg-gray-50 dark:bg-gray-900 w-60">Nome do Atendente</th>
+          <td class="p-4 border">{{ data.atendente }}</td>
+        </tr>
+        <tr class="border-b text-left">
+          <th class="p-4 border-r bg-gray-50 dark:bg-gray-900 w-60">Nome do Responsável</th>
+          <td class="p-4 border">{{ data.nomeResponsavel }}</td>
+        </tr>
+        <tr class="border-b text-left">
+          <th class="p-4 border-r bg-gray-50 dark:bg-gray-900 w-60">E-mail do Responsável</th>
+          <td class="p-4 border">{{ data.emailResponsavel }}</td>
+        </tr>
+        <tr class="border-b text-left">
+          <th class="p-4 border-r bg-gray-50 dark:bg-gray-900 w-60">Telefone do Responsável</th>
+          <td class="p-4 border">{{ data.telefoneResponsavel }}</td>
+        </tr>
+        <tr class="border-b text-left">
+          <th class="p-4 border-r bg-gray-50 dark:bg-gray-900 w-60">CEP do Responsável</th>
+          <td class="p-4 border">{{ data.cepResponsavel }}</td>
+        </tr>
+        <tr class="border-b text-left">
+          <th class="p-4 border-r bg-gray-50 dark:bg-gray-900 w-60">Logradouro do Responsável</th>
+          <td class="p-4 border">{{ data.logradouroResponsavel }}</td>
+        </tr>
+        <tr class="border-b text-left">
+          <th class="p-4 border-r bg-gray-50 dark:bg-gray-900 w-60">Número do Responsável</th>
+          <td class="p-4 border">{{ data.numeroResponsavel }}</td>
+        </tr>
+        <tr class="border-b text-left">
+          <th class="p-4 border-r bg-gray-50 dark:bg-gray-900 w-60">Complemento do Responsável</th>
+          <td class="p-4 border">{{ data.complementoResponsavel }}</td>
+        </tr>
+        <tr class="border-b text-left">
+          <th class="p-4 border-r bg-gray-50 dark:bg-gray-900 w-60">Bairro do Responsável</th>
+          <td class="p-4 border">{{ data.bairroResponsavel }}</td>
+        </tr>
+        <tr class="border-b text-left">
+          <th class="p-4 border-r bg-gray-50 dark:bg-gray-900 w-60">Cidade do Responsável</th>
+          <td class="p-4 border">{{ data.cidadeResponsavel }}</td>
+        </tr>
+        <tr class="border-b text-left">
+          <th class="p-4 border-r bg-gray-50 dark:bg-gray-900 w-60">Estado do Responsável</th>
+          <td class="p-4 border">{{ data.estadoResponsavel }}</td>
+        </tr>
+
+        <tr class="border-b text-left">
+          <th class="p-4 border-r bg-gray-50 dark:bg-gray-900 w-60">Autoriza fatura mensal por e-mail</th>
+          <td class="p-4 border">{{ data.autorizaFatura === true ? 'Sim' : 'Não' }}</td>
+        </tr>
+        <tr class="border-b text-left">
+          <th class="p-4 border-r bg-gray-50 dark:bg-gray-900 w-60">Autoriza informações por SMS</th>
+          <td class="p-4 border">{{ data.autorizaSms === true ? 'Sim' : 'Não' }}</td>
+        </tr>
+        <tr class="border-b text-left">
+          <th class="p-4 border-r bg-gray-50 dark:bg-gray-900 w-60">Autoriza informações por WhatsApp</th>
+          <td class="p-4 border">{{ data.autorizaWhatsApp === true ? 'Sim' : 'Não' }}</td>
+        </tr>
+        <tr class="border-b text-left">
+          <th class="p-4 border-r bg-gray-50 dark:bg-gray-900 w-60">Autoriza receber boletos/corresp.</th>
+          <td class="p-4 border">{{ data.autorizaCorrespondencia === true ? 'Sim' : 'Não' }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="flex flex-col flex-auto p-6 sm:p-8 bg-gray-50 dark:bg-gray-700">
+    <div class="flex items-center mt-4 sm:mt-0">
+      <button
+        class="fuse-mat-button-large w-full"
+        mat-flat-button
+        [color]="'primary'"
+        [disabled]="loading"
+        (click)="send(data.id)"
+      >
+        <span *ngIf="!loading">ATUALIZAR </span>
+        <mat-progress-spinner *ngIf="loading" [diameter]="24" [mode]="'indeterminate'"></mat-progress-spinner>
+      </button>
+    </div>
+  </div>
+</div>

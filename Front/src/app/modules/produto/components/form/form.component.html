@@ -1,0 +1,85 @@
+<div class="flex flex-col max-w-240 md:min-w-160 max-h-screen -m-6">
+  <div class="flex flex-0 items-center justify-between h-16 pr-3 sm:pr-5 pl-6 sm:pl-8 bg-primary text-on-primary">
+    <div class="text-lg font-medium">{{ title }}</div>
+    <button mat-icon-button (click)="close()" [tabIndex]="-1">
+      <mat-icon class="text-current" [svgIcon]="'heroicons_outline:x'"></mat-icon>
+    </button>
+  </div>
+
+  <form class="flex flex-col px-8 pt-10 bg-card shadow rounded overflow-hidden" [formGroup]="form">
+    <fuse-alert
+      class="mb-8"
+      *ngIf="showAlert"
+      [appearance]="'outline'"
+      [showIcon]="false"
+      [type]="alert.type"
+      [@shake]="alert.type === 'error'"
+    >
+      {{ alert.message }}
+    </fuse-alert>
+
+    <mat-form-field class="w-full">
+      <mat-label>Assunto</mat-label>
+      <input type="text" matInput formControlName="titulo" />
+      <mat-error *ngIf="displayMessage.titulo" [innerHTML]="displayMessage.titulo"> </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="w-full">
+      <mat-label>Texto</mat-label>
+      <input type="text" matInput formControlName="descricao" />
+      <mat-error *ngIf="displayMessage.descricao" [innerHTML]="displayMessage.descricao"> </mat-error>
+    </mat-form-field>
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header [collapsedHeight]="'56px'">
+        <mat-panel-title class="font-medium leading-tight">Inserir dados variáveis</mat-panel-title>
+      </mat-expansion-panel-header>
+      <table class="table w-full border">
+        <tbody>
+          <tr class="border-b text-left">
+            <th class="p-4 border-r bg-gray-50 dark:bg-gray-900">Código do beneficiário</th>
+            <td class="p-4 border">@codigo</td>
+          </tr>
+          <tr class="border-b text-left">
+            <th class="p-4 border-r bg-gray-50 dark:bg-gray-900">Nome do beneficiário</th>
+            <td class="p-4 border">@nome</td>
+          </tr>
+          <tr class="border-b text-left">
+            <th class="p-4 border-r bg-gray-50 dark:bg-gray-900">E-mail do beneficiário</th>
+            <td class="p-4 border">@email</td>
+          </tr>
+          <tr class="border-b text-left">
+            <th class="p-4 border-r bg-gray-50 dark:bg-gray-900">Telefone do beneficiário</th>
+            <td class="p-4 border">@telefone</td>
+          </tr>
+          <tr class="border-b text-left">
+            <th class="p-4 border-r bg-gray-50 dark:bg-gray-900">CEP do beneficiário</th>
+            <td class="p-4 border">@cep</td>
+          </tr>
+          <tr class="border-b text-left">
+            <th class="p-4 border-r bg-gray-50 dark:bg-gray-900">Cidade do beneficiário</th>
+            <td class="p-4 border">@cidade</td>
+          </tr>
+          <tr class="border-b text-left">
+            <th class="p-4 border-r bg-gray-50 dark:bg-gray-900">Estado (UF) do beneficiário</th>
+            <td class="p-4 border">@estado</td>
+          </tr>
+        </tbody>
+      </table>
+    </mat-expansion-panel>
+
+    <div class="flex items-center justify-start border-t -mx-8 mt-8 px-8 py-5 bg-gray-50 dark:bg-gray-700">
+      <button
+        class="fuse-mat-button-large mr-2"
+        mat-flat-button
+        [color]="'primary'"
+        [disabled]="form.disabled || form.invalid"
+        (click)="submit()"
+      >
+        <span *ngIf="!form.disabled"> Salvar </span>
+        <mat-progress-spinner *ngIf="form.disabled" [diameter]="24" [mode]="'indeterminate'"></mat-progress-spinner>
+      </button>
+      <button class="bg-red-600 text-white fuse-mat-button-large" mat-flat-button (click)="close()">Cancelar</button>
+    </div>
+  </form>
+</div>
