@@ -14,11 +14,11 @@ const routes: Routes = [
     children: [
       {
         path: 'home',
-        loadChildren: (): any => import('app/modules/home/home.module').then((m) => m.HomeModule),
+        loadChildren: (): any => import('app/modules/home/home.module').then(m => m.HomeModule),
       },
       {
-        path: 'api',
-        loadChildren: (): any => import('app/modules/api/api.module').then((m) => m.ApiModule),
+        path: 'produto',
+        loadChildren: (): any => import('app/modules/produto/produto.module').then(m => m.ProdutoModule),
       },
     ],
   },

@@ -4,6 +4,6 @@ import { Component } from '@angular/core';
   templateUrl: './page-list.component.html',
 })
 export class PageListComponent {
-  public pageAction: string = 'Configuração';
-  public page: string = 'Mensagem';
+  public pageAction: string = 'Produto';
+  public page: string = 'Lista';
 }

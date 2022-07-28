@@ -4,8 +4,8 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { fuseAnimations } from '@fuse/animations';
 import { FormBaseComponent } from 'app/shared/components/form-base.component';
-import { Texto } from 'app/shared/models/texto.model';
-import { TextoService } from 'app/shared/services/texto.service';
+import { Produto } from 'app/shared/models/produto.model';
+import { ProdutoService } from 'app/shared/services/produto.service';
 
 @Component({
   selector: 'app-form',
@@ -21,21 +21,17 @@ export class FormComponent extends FormBaseComponent implements OnInit, AfterVie
   public title: string;
 
   constructor(
-    @Inject(MAT_DIALOG_DATA) private _data: Texto,
+    @Inject(MAT_DIALOG_DATA) private _data: Produto,
     private _matDialogRef: MatDialogRef<FormComponent>,
     private _snackBar: MatSnackBar,
     private _formBuilder: UntypedFormBuilder,
-    private _textoService: TextoService
+    private _service: ProdutoService
   ) {
     super();
 
     this.validationMessages = {
       id: {
         required: 'O campo é obrigatório',
-      },
-      titulo: {
-        required: 'O campo é obrigatório',
-        maxlength: 'Descrição deve possuir entre 1 e 50 caracteres',
       },
       descricao: {
         required: 'O campo é obrigatório',
@@ -51,9 +47,7 @@ export class FormComponent extends FormBaseComponent implements OnInit, AfterVie
   ngOnInit(): void {
     this.form = this._formBuilder.group({
       id: [this._data.id, [Validators.required]],
-      titulo: [this._data.titulo, [Validators.required, Validators.maxLength(50)]],
       descricao: [this._data.descricao, [Validators.required, Validators.maxLength(250)]],
-      tipoTextoId: [this._data.tipoTextoId, [Validators.required]],
     });
   }
 
@@ -75,7 +69,7 @@ export class FormComponent extends FormBaseComponent implements OnInit, AfterVie
 
     const data = this.form.value;
 
-    this._textoService.update(data.id, data).subscribe(
+    this._service.update(data.id, data).subscribe(
       () => {
         this._snackBar.open('Processado com sucesso!', 'OK', {
           horizontalPosition: 'center',
@@ -84,7 +78,6 @@ export class FormComponent extends FormBaseComponent implements OnInit, AfterVie
         });
 
         this.close();
-        this._textoService.getAll().subscribe();
       },
       (error) => {
         this.alert = {

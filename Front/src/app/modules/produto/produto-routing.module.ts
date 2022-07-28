@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { TextoResolver } from 'app/shared/resolvers/texto.resolver';
+import { ProdutoResolver } from 'app/shared/resolvers/produto.resolver';
 import { PageListComponent } from './pages/page-list/page-list.component';
 
 const routes: Routes = [
@@ -8,7 +8,7 @@ const routes: Routes = [
     path: '',
     component: PageListComponent,
     resolve: {
-      data: TextoResolver,
+      data: ProdutoResolver,
     },
   },
 ];

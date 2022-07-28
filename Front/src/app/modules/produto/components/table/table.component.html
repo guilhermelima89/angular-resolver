@@ -19,7 +19,6 @@
             matSort
           >
             <div>#</div>
-            <div class="hidden md:block">Tipo</div>
             <div>Descrição</div>
             <div class="text-center">Ações</div>
           </div>
@@ -27,11 +26,13 @@
             <ng-container *ngFor="let item of items; index as i; trackBy: trackByFn">
               <div class="inventory-grid grid items-center gap-4 py-3 px-6 md:px-8 border-b">
                 <div>{{ i + 1 }}</div>
-                <div class="hidden md:block">{{ item.titulo }}</div>
                 <div class="truncate">{{ item.descricao }}</div>
                 <div class="whitespace-nowrap">
                   <button class="bg-orange-400 ml-2" mat-icon-button matTooltip="Editar" (click)="openDialogForm(item)">
                     <mat-icon class="icon-size-5 text-white" [svgIcon]="'heroicons_solid:pencil-alt'"></mat-icon>
+                  </button>
+                  <button class="bg-red-400 ml-2" mat-icon-button matTooltip="Remover" (click)="deleteItem(item.id)">
+                    <mat-icon class="md:icon-size-5 text-white" [svgIcon]="'heroicons_solid:trash'"></mat-icon>
                   </button>
                 </div>
               </div>
