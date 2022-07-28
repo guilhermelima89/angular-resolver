@@ -17,6 +17,14 @@ By Guilherme Lima
 
 # Front
 
+- Lógica utilizando o componente para armazenar e manipular os dados
+
+<img src=".docs/img-8.png" alt="My cool logo"/>
+
+- Lógica utilizando serviço para armazenar e manipular os dados
+
+<img src=".docs/img-9.png" alt="My cool logo"/>
+
 - Fazendo uso de resolver para obter dados durante a navegação - ProdutoResolver
 
 <img src=".docs/img-3.png" alt="My cool logo"/>
