@@ -2314,11 +2314,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "d:\\POC\\Poc1\\API\\API.csproj",
+      "projectUniqueName": "D:\\POC\\Poc1\\back\\API.csproj",
       "projectName": "API",
-      "projectPath": "d:\\POC\\Poc1\\API\\API.csproj",
+      "projectPath": "D:\\POC\\Poc1\\back\\API.csproj",
       "packagesPath": "C:\\Users\\guyll\\.nuget\\packages\\",
-      "outputPath": "d:\\POC\\Poc1\\API\\obj\\",
+      "outputPath": "D:\\POC\\Poc1\\back\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\guyll\\AppData\\Roaming\\NuGet\\NuGet.Config"
