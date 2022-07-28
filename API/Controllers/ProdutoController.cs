@@ -53,4 +53,28 @@ public class ProdutoController : ControllerBase
 
         return metadata;
     }
+
+    [HttpPut("{id}")]
+    public async Task<IActionResult> Update(int id, [FromBody] Produto request)
+    {
+        if (id != request.Id) return BadRequest();
+
+        if (!ModelState.IsValid) return BadRequest(ModelState);
+
+        await _produtoRepository.Update(request);
+
+        return Ok();
+    }
+
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> Remove(int id)
+    {
+        var item = await _produtoRepository.GetByIdAsync(id);
+
+        if (item is null) return NotFound();
+
+        await _produtoRepository.Remove(id);
+
+        return Ok();
+    }
 }

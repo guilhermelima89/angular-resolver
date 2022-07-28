@@ -39,19 +39,19 @@ namespace Data.Repositories
                 .ToListAsync();
         }
 
-        public async void Add(T entity)
+        public async Task Add(T entity)
         {
             DbSet.Add(entity);
             await Commit();
         }
 
-        public async void Update(T entity)
+        public async Task Update(T entity)
         {
             DbSet.Update(entity);
             await Commit();
         }
 
-        public async void Remove(int id)
+        public async Task Remove(int id)
         {
             DbSet.Remove(new T { Id = id });
             await Commit();

@@ -5,8 +5,7 @@ namespace Api.Data;
 
 public class ApplicationDbContext : DbContext
 {
-    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
-        : base(options)
+    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
     {
     }
 
@@ -26,7 +25,7 @@ public class ApplicationDbContext : DbContext
 
     public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken())
     {
-        foreach (var entry in ChangeTracker.Entries().Where(entry => entry.Entity.GetType().GetProperty("DataCriacao") is not null))
+        foreach (var entry in ChangeTracker.Entries().Where(entry => entry.Entity.GetType().GetProperty("DataCadastro") is not null))
         {
             if (entry.State == EntityState.Added)
             {
