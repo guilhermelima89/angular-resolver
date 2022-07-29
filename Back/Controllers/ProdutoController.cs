@@ -35,7 +35,7 @@ public class ProdutoController : ControllerBase
         return response;
     }
 
-    [HttpGet("lista")]
+    [HttpGet("listar")]
     public async Task<PagedResult<Produto>> GetList([FromQuery] QueryStringParameters request)
     {
         var response = await _produtoRepository.ObterComEF(request);

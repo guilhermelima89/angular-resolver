@@ -5,5 +5,5 @@ import { Component } from '@angular/core';
 })
 export class PageListComponent {
   public pageAction: string = 'Produto';
-  public page: string = 'Lista';
+  public page: string = 'Lista de Produtos';
 }

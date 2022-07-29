@@ -10,6 +10,7 @@ import { FuseFullscreenModule } from '@fuse/components/fullscreen';
 import { FuseLoadingBarModule } from '@fuse/components/loading-bar';
 import { FuseNavigationModule } from '@fuse/components/navigation';
 import { DarkModeModule } from 'app/layout/common/dark-mode/dark-mode.module';
+import { NotificationsModule } from 'app/layout/common/notifications/notifications.module';
 import { CenteredLayoutComponent } from 'app/layout/layouts/horizontal/centered/centered.component';
 import { SharedModule } from 'app/shared/shared.module';
 
@@ -28,6 +29,7 @@ import { SharedModule } from 'app/shared/shared.module';
     FuseNavigationModule,
     SharedModule,
     DarkModeModule,
+    NotificationsModule,
   ],
   exports: [CenteredLayoutComponent],
 })

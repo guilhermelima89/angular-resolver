@@ -1,8 +1,6 @@
 import { Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
-import { Router } from '@angular/router';
 import { FuseNavigationService, FuseVerticalNavigationComponent } from '@fuse/components/navigation';
 import { FuseMediaWatcherService } from '@fuse/services/media-watcher';
-import { AuthService } from 'app/core/auth/auth.service';
 import { linkNavigation } from 'app/shared/models/navigation';
 import { Subject, takeUntil } from 'rxjs';
 
@@ -21,9 +19,7 @@ export class CenteredLayoutComponent implements OnInit, OnDestroy {
    */
   constructor(
     private _fuseMediaWatcherService: FuseMediaWatcherService,
-    private _fuseNavigationService: FuseNavigationService,
-    private _router: Router,
-    private _authService: AuthService
+    private _fuseNavigationService: FuseNavigationService
   ) {}
 
   // -----------------------------------------------------------------------------------------------------
@@ -82,10 +78,5 @@ export class CenteredLayoutComponent implements OnInit, OnDestroy {
       // Toggle the opened status
       navigation.toggle();
     }
-  }
-
-  sair(): void {
-    this._authService.signOut();
-    this._router.navigate(['sign-in']);
   }
 }
