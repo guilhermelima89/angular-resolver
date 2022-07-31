@@ -54,6 +54,12 @@ public class ProdutoController : ControllerBase
         return metadata;
     }
 
+    [HttpGet("dapper")]
+    public async Task<PagedResult<Produto>> GetListDapper([FromQuery] QueryStringParameters request)
+    {
+        return await _produtoRepository.ObterComDapper(request);
+    }
+
     [HttpPut("{id}")]
     public async Task<IActionResult> Update(int id, [FromBody] Produto request)
     {

@@ -1,23 +1,23 @@
 # POC 1
 
-- POC abordando conceito de paginação no back-end utilizando o cabeçalho (header) e o copor (body) para apresentar informações referente a paginação (total, pagesize, currentpage, totalpages, etc).
-- E lógica concentrada no servico (service) no front-end para compartilhamento de e atualização de informações (produtos).
+- (back-end ) POC abordando conceito de paginação utilizando o cabeçalho (header) e o corpo(body) para apresentar informações referente a paginação (total, pagesize, currentpage, totalpages, etc).
+- (front-end) Lógica concentrada no serviço (service) para compartilhamento e atualização de informações (produtos).
 
-By Guilherme Lima
+By Guilherme Lima - guyga89@gmail.com
 
 # Back
 
-- Retorno com paginação retornando informações no corpo (body)
+- Paginação retornando informações no corpo (body)
 
 <img src=".docs/img-1.png" alt="My cool logo"/>
 
-- Retorno com paginação retornando informações no cabeçalho (header) - x-pagination
+- Paginação retornando informações no cabeçalho (header) - x-pagination
 
 <img src=".docs/img-2.png" alt="My cool logo"/>
 
 # Front
 
-- Lógica utilizando o componente para armazenar e manipular os dados
+- Lógica utilizando o componente 1 para armazenar e manipular os dados
 
 <img src=".docs/img-8.png" alt="My cool logo"/>
 
@@ -29,7 +29,7 @@ By Guilherme Lima
 
 <img src=".docs/img-3.png" alt="My cool logo"/>
 
-- Método para obter lista e armazenar lista no serviço (service) -
+- Método para obter lista e armazenar lista no serviço (service)
 
 <img src=".docs/img-4.png" alt="My cool logo"/>
 
