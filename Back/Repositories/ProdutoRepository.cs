@@ -14,7 +14,7 @@ public class ProdutoRepository : Repository<Produto>, IProdutoRepository
     {
     }
 
-    public async Task<PagedResult<Produto>> ObterComDapper(QueryStringParameters request)
+    public async Task<PagedResult<Produto>> GetWithDapper(QueryStringParameters request)
     {
         var sql = @$"SELECT * FROM Produto
                       WHERE (@Nome IS NULL OR Descricao LIKE '%' + @Nome + '%') 
@@ -42,12 +42,12 @@ public class ProdutoRepository : Repository<Produto>, IProdutoRepository
         };
     }
 
-    public async Task<PagedList<Produto>> ObterComEF(QueryStringParameters request)
+    public async Task<PagedList<Produto>> GetWithEFCore(QueryStringParameters request)
     {
-        var lista = Context.Produto
+        var list = Context.Produto
                 .Where(x => EF.Functions.Like(x.Descricao, $"%{request.Query}%"))
                 .AsNoTrackingWithIdentityResolution();
 
-        return await PagedList<Produto>.ToPagedList(lista, request.PageNumber, request.PageSize);
+        return await PagedList<Produto>.ToPagedList(list, request.PageNumber, request.PageSize);
     }
 }

@@ -18,7 +18,7 @@ public class ProdutoController : ControllerBase
     [HttpGet]
     public async Task<IEnumerable<Produto>> GetAll([FromQuery] QueryStringParameters request)
     {
-        var response = await _produtoRepository.ObterComEF(request);
+        var response = await _produtoRepository.GetWithEFCore(request);
 
         var metadata = new PaginationViewModel
         {
@@ -38,7 +38,7 @@ public class ProdutoController : ControllerBase
     [HttpGet("listar")]
     public async Task<PagedResult<Produto>> GetList([FromQuery] QueryStringParameters request)
     {
-        var response = await _produtoRepository.ObterComEF(request);
+        var response = await _produtoRepository.GetWithEFCore(request);
 
         var metadata = new PagedResult<Produto>()
         {
@@ -57,7 +57,7 @@ public class ProdutoController : ControllerBase
     [HttpGet("dapper")]
     public async Task<PagedResult<Produto>> GetListDapper([FromQuery] QueryStringParameters request)
     {
-        return await _produtoRepository.ObterComDapper(request);
+        return await _produtoRepository.GetWithDapper(request);
     }
 
     [HttpPut("{id}")]
@@ -73,7 +73,7 @@ public class ProdutoController : ControllerBase
     }
 
     [HttpDelete("{id}")]
-    public async Task<IActionResult> Remove(int id)
+    public async Task<IActionResult> Delete(int id)
     {
         var item = await _produtoRepository.GetByIdAsync(id);
 

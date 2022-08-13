@@ -22,6 +22,12 @@ export class ProdutoService extends BaseService {
     return this._pagination.asObservable();
   }
 
+  set reset(value: boolean) {
+    if (value) {
+      this._items.next(null);
+    }
+  }
+
   getAll(pageNumber: number = 1, pageSize: number = 10, query: string = ''): Observable<any> {
     return this._httpClient
       .get<Produto[]>(this.apiUrl + 'Produto', {

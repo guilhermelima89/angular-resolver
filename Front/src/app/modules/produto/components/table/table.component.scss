@@ -6,10 +6,10 @@
   }
 
   @screen md {
-    grid-template-columns: 2rem auto 6rem;
+    grid-template-columns: 2rem auto 20rem 6rem;
   }
 
   @screen lg {
-    grid-template-columns: 2rem auto 6rem;
+    grid-template-columns: 2rem auto 20rem 6rem;
   }
 }

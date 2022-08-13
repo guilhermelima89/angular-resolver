@@ -1,46 +1,54 @@
 # POC 1
 
-- (back-end ) POC abordando conceito de paginação utilizando o cabeçalho (header) e o corpo(body) para apresentar informações referente a paginação (total, pagesize, currentpage, totalpages, etc).
-- (front-end) Lógica concentrada no serviço (service) para compartilhamento e atualização de informações (produtos).
+## Back-End
 
-By Guilherme Lima - guyga89@gmail.com
+- Net 6
+- Dapper
+- EF Core
+
+## Front-End
+
+- Angular
+- Angular Material
+- Tailwind
+- PDFMake
+
+#
 
 # Back
 
-- Paginação retornando informações no corpo (body)
+### POC abordando conceito de paginação utilizando o header e o body para apresentar informações referente a paginação (total, pagesize, currentpage, totalpages, etc).
 
-<img src=".docs/img-1.png" alt="My cool logo"/>
+#
 
-- Paginação retornando informações no cabeçalho (header) - x-pagination
+- Paginação retornando informações no body.
 
-<img src=".docs/img-2.png" alt="My cool logo"/>
+<img src=".docs/images/img-1.png" alt="image"/>
+
+- Paginação retornando informações no header (x-pagination).
+
+<img src=".docs/images/img-2.png" alt="image"/>
+
+#
 
 # Front
 
-- Lógica utilizando o componente 1 para armazenar e manipular os dados
+### Lógica concentrada no serviço (service) para compartilhamento e atualização de informações (produtos).
 
-<img src=".docs/img-8.png" alt="My cool logo"/>
+#
 
-- Lógica utilizando serviço para armazenar e manipular os dados
+- Lógica utilizando o componente Pai para armazenar e distribuir os dados.
 
-<img src=".docs/img-9.png" alt="My cool logo"/>
+<img src=".docs/images/img-3.png" alt="image"/>
 
-- Fazendo uso de resolver para obter dados durante a navegação - ProdutoResolver
+- Lógica utilizando serviço para armazenar e distribuir os dados.
 
-<img src=".docs/img-3.png" alt="My cool logo"/>
+<img src=".docs/images/img-4.png" alt="image"/>
 
-- Método para obter lista e armazenar lista no serviço (service)
+- Lógica utilizando resolver.
 
-<img src=".docs/img-4.png" alt="My cool logo"/>
+<img src=".docs/images/img-5.png" alt="image"/>
 
-- Método para atualizar um item específico da lista
+- Exemplo de descentralização.
 
-<img src=".docs/img-5.png" alt="My cool logo"/>
-
-- Método para remover um item específico da lista
-
-<img src=".docs/img-6.png" alt="My cool logo"/>
-
-- Estrutura de pastas em cada módulo separando componente (component) por página (page)
-
-<img src=".docs/img-7.png" alt="My cool logo"/>
+<img src=".docs/images/img-6.png" alt="image"/>

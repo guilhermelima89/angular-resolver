@@ -20,10 +20,13 @@ const routes: Routes = [
         path: 'produto',
         loadChildren: (): any => import('app/modules/produto/produto.module').then(m => m.ProdutoModule),
       },
+      {
+        path: 'resolver',
+        loadChildren: (): any => import('app/modules/resolver/resolver.module').then(m => m.ResolverModule),
+      },
     ],
   },
-  // Otherwise redirect to home
-  { path: '**', redirectTo: 'sign-in' },
+  { path: '**', redirectTo: 'home' },
 ];
 
 @NgModule({

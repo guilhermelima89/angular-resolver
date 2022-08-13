@@ -20,6 +20,7 @@
           >
             <div>#</div>
             <div>Descrição</div>
+            <div class="hidden md:block">Data Cadastro</div>
             <div class="text-center">Ações</div>
           </div>
           <ng-container *ngIf="data$ | async as items">
@@ -27,6 +28,7 @@
               <div class="inventory-grid grid items-center gap-4 py-3 px-6 md:px-8 border-b">
                 <div>{{ i + 1 }}</div>
                 <div class="truncate">{{ item.descricao }}</div>
+                <div class="hidden md:block">{{ item.dataCadastro | date: 'HH:mm:ss - dd/MM/yyyy' }}</div>
                 <div class="whitespace-nowrap">
                   <button class="bg-orange-400 ml-2" mat-icon-button matTooltip="Editar" (click)="openDialogForm(item)">
                     <mat-icon class="icon-size-5 text-white" [svgIcon]="'heroicons_solid:pencil-alt'"></mat-icon>

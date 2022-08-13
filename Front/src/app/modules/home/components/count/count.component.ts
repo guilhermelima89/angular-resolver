@@ -1,25 +1,15 @@
 import { OverlayRef } from '@angular/cdk/overlay';
-import {
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Component,
-  OnDestroy,
-  OnInit,
-  ViewEncapsulation,
-} from '@angular/core';
+import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { Produto } from 'app/shared/models/produto.model';
 import { ProdutoService } from 'app/shared/services/produto.service';
-import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
+import { Subject, takeUntil } from 'rxjs';
 
 @Component({
-  selector: 'notifications',
-  templateUrl: './notifications.component.html',
-  encapsulation: ViewEncapsulation.None,
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  exportAs: 'notifications',
+  selector: 'app-count',
+  templateUrl: './count.component.html',
+  styleUrls: ['./count.component.scss'],
 })
-export class NotificationsComponent implements OnInit, OnDestroy {
+export class CountComponent implements OnInit, OnDestroy {
   items: number = 0;
   private _overlayRef: OverlayRef;
   private _unsubscribeAll: Subject<any> = new Subject<any>();

@@ -2,19 +2,18 @@
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Serialization;
 
-namespace Api.Pagination
-{
-    public static class ObjectExtensions
-    {
-        public static string ToJson(this object value)
-        {
-            var settings = new JsonSerializerSettings
-            {
-                ContractResolver = new CamelCasePropertyNamesContractResolver(),
-                Converters = new List<JsonConverter> { new StringEnumConverter() }
-            };
+namespace Api.Pagination;
 
-            return JsonConvert.SerializeObject(value, settings);
-        }
+public static class ObjectExtensions
+{
+    public static string ToJson(this object value)
+    {
+        var settings = new JsonSerializerSettings
+        {
+            ContractResolver = new CamelCasePropertyNamesContractResolver(),
+            Converters = new List<JsonConverter> { new StringEnumConverter() }
+        };
+
+        return JsonConvert.SerializeObject(value, settings);
     }
 }

@@ -41,16 +41,16 @@ export class TableComponent implements OnInit, OnDestroy, AfterViewInit {
 
   constructor(
     private _changeDetectorRef: ChangeDetectorRef,
-    private _crudService: ProdutoService,
+    private _produtoService: ProdutoService,
     private _matDialog: MatDialog,
     private _snackBar: MatSnackBar,
     private _fuseConfirmationService: FuseConfirmationService
   ) {}
 
   ngOnInit(): void {
-    this.data$ = this._crudService.items$;
+    this.data$ = this._produtoService.items$;
 
-    this._crudService.pagination$.pipe(takeUntil(this._unsubscribeAll)).subscribe((pagination: Pagination) => {
+    this._produtoService.pagination$.pipe(takeUntil(this._unsubscribeAll)).subscribe((pagination: Pagination) => {
       this.pagination = pagination;
       this._changeDetectorRef.markForCheck();
     });
@@ -61,7 +61,7 @@ export class TableComponent implements OnInit, OnDestroy, AfterViewInit {
         debounceTime(300),
         switchMap((query) => {
           this.isLoading = true;
-          return this._crudService.getAll(1, 10, query);
+          return this._produtoService.getAll(1, 10, query);
         }),
         map(() => {
           this.isLoading = false;
@@ -78,7 +78,7 @@ export class TableComponent implements OnInit, OnDestroy, AfterViewInit {
         .pipe(
           switchMap(() => {
             this.isLoading = true;
-            return this._crudService.getAll(this._paginator.pageIndex + 1, this._paginator.pageSize);
+            return this._produtoService.getAll(this._paginator.pageIndex + 1, this._paginator.pageSize);
           }),
           map(() => {
             this.isLoading = false;
@@ -119,7 +119,7 @@ export class TableComponent implements OnInit, OnDestroy, AfterViewInit {
 
     confirmation.afterClosed().subscribe((result) => {
       if (result === 'confirmed') {
-        this._crudService.delete(id).subscribe(
+        this._produtoService.delete(id).subscribe(
           () => {
             this._snackBar.open('Processado com sucesso!', 'OK', {
               horizontalPosition: 'center',

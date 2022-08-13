@@ -13,4 +13,11 @@ export const linkNavigation = [
     icon: 'heroicons_outline:clock',
     link: '/produto',
   },
+  {
+    id: 'resolver',
+    title: 'Resolver',
+    type: 'basic',
+    icon: 'heroicons_outline:annotation',
+    link: '/resolver',
+  },
 ];

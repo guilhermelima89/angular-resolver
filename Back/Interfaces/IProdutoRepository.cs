@@ -5,6 +5,6 @@ namespace Api.Interfaces;
 
 public interface IProdutoRepository : IRepository<Produto>
 {
-    Task<PagedList<Produto>> ObterComEF(QueryStringParameters request);
-    Task<PagedResult<Produto>> ObterComDapper(QueryStringParameters request);
+    Task<PagedList<Produto>> GetWithEFCore(QueryStringParameters request);
+    Task<PagedResult<Produto>> GetWithDapper(QueryStringParameters request);
 }
