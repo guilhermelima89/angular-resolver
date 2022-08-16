@@ -1,4 +1,4 @@
-using Api.Interfaces;
+﻿using Api.Interfaces;
 using Api.Models;
 using Api.Pagination;
 using Microsoft.AspNetCore.Mvc;
@@ -58,6 +58,14 @@ public class ProdutoController : ControllerBase
     public async Task<PagedResult<Produto>> GetListDapper([FromQuery] QueryStringParameters request)
     {
         return await _produtoRepository.GetWithDapper(request);
+    }
+
+    [HttpGet("{id}")]
+    public async Task<IActionResult> GetById(int id)
+    {
+        var produto = await _produtoRepository.GetByIdAsync(id);
+
+        return produto is null ? NotFound() : Ok(produto);
     }
 
     [HttpPut("{id}")]

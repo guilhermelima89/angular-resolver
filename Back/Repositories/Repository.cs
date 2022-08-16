@@ -1,6 +1,6 @@
-﻿using Api.Models;
-using Api.Data;
+﻿using Api.Data;
 using Api.Interfaces;
+using Api.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 

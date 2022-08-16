@@ -6,6 +6,6 @@ export class TesteResolver implements Resolve<any> {
   constructor() {}
 
   resolve(): void {
-    console.log('resolve');
+    console.log('resolver');
   }
 }

@@ -1,4 +1,4 @@
-using Api.Models;
+﻿using Api.Models;
 using Api.Pagination;
 
 namespace Api.Interfaces;

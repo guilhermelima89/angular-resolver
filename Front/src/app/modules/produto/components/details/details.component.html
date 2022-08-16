@@ -1,0 +1,34 @@
+<div class="p-6">
+  <button class="bg-green-600 text-white" mat-flat-button [routerLink]="'/produto/'">
+    <mat-icon class="icon-size-5 mr-2" [svgIcon]="'heroicons_solid:arrow-left'"></mat-icon>
+    Voltar
+  </button>
+</div>
+
+<table class="table w-full border">
+  <tbody>
+    <tr class="border-b text-left">
+      <th class="p-4 border-r bg-gray-50 dark:bg-gray-900 w-60">Código</th>
+      <td class="p-4 border">{{ model.id }}</td>
+    </tr>
+    <tr class="border-b text-left">
+      <th class="p-4 border-r bg-gray-50 dark:bg-gray-900">Descrição</th>
+      <td class="p-4 border">{{ model.descricao }}</td>
+    </tr>
+    <tr class="border-b text-left">
+      <th class="p-4 border-r bg-gray-50 dark:bg-gray-900">Criado em</th>
+      <td class="p-4 border">
+        {{ model.dataCadastro | date: 'HH:mm:ss - dd/MM/yyyy' }}
+      </td>
+    </tr>
+    <tr class="border-b text-left">
+      <th class="p-4 border-r bg-gray-50 dark:bg-gray-900">Criado em</th>
+      <td class="p-4 border">
+        {{ model.dataAlteracao | date: 'HH:mm:ss - dd/MM/yyyy' }}
+      </td>
+    </tr>
+    <tr *ngIf="model === null">
+      <td colspan="6" class="text-center">Nenhuma informação encontrada.</td>
+    </tr>
+  </tbody>
+</table>

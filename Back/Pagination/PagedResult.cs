@@ -1,4 +1,4 @@
-namespace Api.Pagination;
+﻿namespace Api.Pagination;
 
 public class PagedResult<T> where T : class
 {

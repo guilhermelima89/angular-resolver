@@ -7,19 +7,24 @@ import { BaseService } from './base.service';
 
 @Injectable({ providedIn: 'root' })
 export class ProdutoService extends BaseService {
-  private _items: BehaviorSubject<Produto[] | null> = new BehaviorSubject(null);
   private _pagination: BehaviorSubject<Pagination | null> = new BehaviorSubject(null);
+  private _items: BehaviorSubject<Produto[] | null> = new BehaviorSubject(null);
+  private _item: BehaviorSubject<Produto | null> = new BehaviorSubject(null);
 
   constructor(protected _httpClient: HttpClient) {
     super();
+  }
+
+  get pagination$(): Observable<Pagination> {
+    return this._pagination.asObservable();
   }
 
   get items$(): Observable<Produto[]> {
     return this._items.asObservable();
   }
 
-  get pagination$(): Observable<Pagination> {
-    return this._pagination.asObservable();
+  get item$(): Observable<Produto> {
+    return this._item.asObservable();
   }
 
   set reset(value: boolean) {
@@ -47,6 +52,12 @@ export class ProdutoService extends BaseService {
           this._pagination.next(JSON.parse(response.headers.get('X-Pagination')));
         })
       );
+  }
+
+  getById(id: number): Observable<Produto> {
+    return this._httpClient
+      .get<Produto>(this.apiUrl + 'Produto/' + id)
+      .pipe(tap((response: any) => this._item.next(response), super.serviceError));
   }
 
   update(id: number, value: Produto): Observable<Produto> {

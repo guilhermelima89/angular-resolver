@@ -30,6 +30,14 @@
                 <div class="truncate">{{ item.descricao }}</div>
                 <div class="hidden md:block">{{ item.dataCadastro | date: 'HH:mm:ss - dd/MM/yyyy' }}</div>
                 <div class="whitespace-nowrap">
+                  <button
+                    class="bg-green-600"
+                    mat-icon-button
+                    matTooltip="Visualizar"
+                    [routerLink]="['/produto/detalhes/' + item.id]"
+                  >
+                    <mat-icon class="icon-size-5 text-white" [svgIcon]="'heroicons_solid:zoom-in'"></mat-icon>
+                  </button>
                   <button class="bg-orange-400 ml-2" mat-icon-button matTooltip="Editar" (click)="openDialogForm(item)">
                     <mat-icon class="icon-size-5 text-white" [svgIcon]="'heroicons_solid:pencil-alt'"></mat-icon>
                   </button>

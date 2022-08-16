@@ -1,5 +1,5 @@
-﻿using System.Linq.Expressions;
-using Api.Models;
+﻿using Api.Models;
+using System.Linq.Expressions;
 
 namespace Api.Interfaces
 {

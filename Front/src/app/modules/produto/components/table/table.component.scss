@@ -1,15 +1,15 @@
 .inventory-grid {
-  grid-template-columns: 2rem auto 6rem;
+  grid-template-columns: 2rem auto 8rem;
 
   @screen sm {
-    grid-template-columns: 2rem auto 6rem;
+    grid-template-columns: 2rem auto 8rem;
   }
 
   @screen md {
-    grid-template-columns: 2rem auto 20rem 6rem;
+    grid-template-columns: 2rem auto 20rem 8rem;
   }
 
   @screen lg {
-    grid-template-columns: 2rem auto 20rem 6rem;
+    grid-template-columns: 2rem auto 20rem 8rem;
   }
 }

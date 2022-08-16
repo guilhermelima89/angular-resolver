@@ -5,6 +5,8 @@
 - Net 6
 - Dapper
 - EF Core
+- Swagger
+- Paginação
 
 ## Front-End
 
@@ -12,6 +14,8 @@
 - Angular Material
 - Tailwind
 - PDFMake
+- Paginação
+- Resolver
 
 #
 
@@ -33,7 +37,7 @@
 
 # Front
 
-### Lógica concentrada no serviço (service) para compartilhamento e atualização de informações (produtos).
+### Lógica concentrada no serviço para compartilhamento e atualização de informações (produtos).
 
 #
 
@@ -52,3 +56,15 @@
 - Exemplo de descentralização.
 
 <img src=".docs/images/img-6.png" alt="image"/>
+
+- Página de listagem (utilizando resolver).
+
+<img src=".docs/images/img-7.png" alt="image"/>
+
+- Detalhes do produto (utilizando resolver).
+
+<img src=".docs/images/img-8.png" alt="image"/>
+
+- Exemplo de geração de PDF (PDFMake).
+
+<img src=".docs/images/img-9.png" alt="image"/>

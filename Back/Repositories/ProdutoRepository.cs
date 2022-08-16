@@ -1,10 +1,10 @@
+﻿using Api.Data;
 using Api.Interfaces;
 using Api.Models;
-using Api.Data;
-using Data.Repositories;
 using Api.Pagination;
-using Microsoft.EntityFrameworkCore;
 using Dapper;
+using Data.Repositories;
+using Microsoft.EntityFrameworkCore;
 
 namespace Api.Repositories;
 
