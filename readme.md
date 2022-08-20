@@ -1,4 +1,4 @@
-# POC 1
+# ANGULAR RESOLVER
 
 ## Back-End
 
@@ -6,7 +6,7 @@
 - Dapper
 - EF Core
 - Swagger
-- Paginação
+- Pagination
 
 ## Front-End
 
@@ -14,7 +14,7 @@
 - Angular Material
 - Tailwind
 - PDFMake
-- Paginação
+- Pagination
 - Resolver
 
 #
