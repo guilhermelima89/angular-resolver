@@ -27,12 +27,6 @@ export class ProdutoService extends BaseService {
     return this._item.asObservable();
   }
 
-  set reset(value: boolean) {
-    if (value) {
-      this._items.next(null);
-    }
-  }
-
   getAll(pageNumber: number = 1, pageSize: number = 10, query: string = ''): Observable<any> {
     return this._httpClient
       .get<Produto[]>(this.apiUrl + 'Produto', {
@@ -45,11 +39,10 @@ export class ProdutoService extends BaseService {
       })
       .pipe(
         tap((response) => {
-          // atualiza a lista de produtos
-          this._items.next(response.body);
-
           // paginação pelo cabeçalho
           this._pagination.next(JSON.parse(response.headers.get('X-Pagination')));
+          // atualiza a lista de produtos
+          this._items.next(response.body);
         })
       );
   }

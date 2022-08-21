@@ -23,14 +23,11 @@ registerLocaleData(localePt, 'pt-BR');
     BrowserAnimationsModule,
     AppRoutingModule,
 
-    // Fuse & Fuse Mock API
     FuseModule,
     FuseConfigModule.forRoot(appConfig),
 
-    // Core
     CoreModule,
 
-    // Layout
     LayoutModule,
   ],
   providers: [

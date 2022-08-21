@@ -48,12 +48,12 @@ export class TableComponent implements OnInit, OnDestroy, AfterViewInit {
   ) {}
 
   ngOnInit(): void {
-    this.data$ = this._produtoService.items$;
-
     this._produtoService.pagination$.pipe(takeUntil(this._unsubscribeAll)).subscribe((pagination: Pagination) => {
       this.pagination = pagination;
       this._changeDetectorRef.markForCheck();
     });
+
+    this.data$ = this._produtoService.items$;
 
     this.searchInputControl.valueChanges
       .pipe(
@@ -78,10 +78,15 @@ export class TableComponent implements OnInit, OnDestroy, AfterViewInit {
         .pipe(
           switchMap(() => {
             this.isLoading = true;
-            return this._produtoService.getAll(this._paginator.pageIndex + 1, this._paginator.pageSize);
+            return this._produtoService.getAll(
+              this._paginator.pageIndex + 1,
+              this._paginator.pageSize,
+              this.searchInputControl.value ?? ''
+            );
           }),
           map(() => {
             this.isLoading = false;
+            console.log(this.searchInputControl.value);
           })
         )
         .subscribe();

@@ -5,7 +5,6 @@ import { LayoutComponent } from './layout/layout.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
-  { path: 'signed-in-redirect', pathMatch: 'full', redirectTo: 'home' },
   {
     path: '',
     canActivate: [NoAuthGuard],
