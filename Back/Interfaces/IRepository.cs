@@ -3,7 +3,7 @@ using System.Linq.Expressions;
 
 namespace Api.Interfaces
 {
-    public interface IRepository<T> where T : Entity
+    public interface IRepository<T> : IDisposable where T : Entity
     {
         Task<List<T>> GetAllAsync();
         Task<T> GetByIdAsync(int id);
